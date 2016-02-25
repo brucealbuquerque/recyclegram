@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace recyclegram\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

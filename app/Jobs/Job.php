@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace recyclegram\Jobs;
 
 use Illuminate\Bus\Queueable;
 

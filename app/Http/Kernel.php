@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http;
+namespace recyclegram\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -14,7 +14,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        //\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+        'Illuminate\Cookie\Middleware\EncryptCookies',
+        'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+        'Illuminate\Session\Middleware\StartSession',
+        'Illuminate\View\Middleware\ShareErrorsFromSession',
+        'recyclegram\Http\Middleware\VerifyCsrfToken',
     ];
 
     /**
@@ -24,11 +30,11 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \App\Http\Middleware\EncryptCookies::class,
+            \recyclegram\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
+            \recyclegram\Http\Middleware\VerifyCsrfToken::class,
         ],
 
         'api' => [
@@ -44,9 +50,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth' => \recyclegram\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \recyclegram\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

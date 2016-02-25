@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace recyclegram\Events;
 
 abstract class Event
 {
